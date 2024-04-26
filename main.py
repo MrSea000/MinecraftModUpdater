@@ -47,4 +47,4 @@ def start(url, thread_num):
     print("文件大小：", content_length, "文件名称：" + file_name)
     print(int(content_length) / int(thread_num))
 
-start(url,20)
+start(url,10)
