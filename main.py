@@ -1,6 +1,5 @@
 import os
 import requests
-import os
 import time
 from urllib.parse import unquote
 
@@ -22,7 +21,7 @@ headers = {
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
 }
-url = 'https://www.curseforge.com/minecraft/mc-mods/sodium/download/5284882'
+url = 'https://cdn.modrinth.com/data/9mtu0sUO/versions/U5CYxkEG/fast-ip-ping-mc1.20.4-fabric-v1.0.1.jar'
 path = 'new_folder/sub_folder/child_folder'
 
 def get_file_name(url, headers):
@@ -41,7 +40,7 @@ def get_file_name(url, headers):
     return filename
 
 def start(url, thread_num):
-    get_file = requests.get(url=url, headers=headers, stream=True, allow_redirects=False, timeout=10)
+    get_file = requests.get(url=url, headers=headers, stream=True, allow_redirects=True, timeout=10)
     content_length = get_file.headers['Content-Length']
     file_name = get_file_name(url, get_file.headers)
     print("文件大小：", content_length, "文件名称：" + file_name)
